@@ -21,18 +21,21 @@
         </div>
 
         <div class="pl-8 flex">
-            <div class="bg-yellow-100 flex items-center rounded-full shadow-xl">
-              <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none bg-yellow-100" id="search" type="text" placeholder="Search your book">
-
-              <div class="p-2">
-                <button
-                class="text-gray-400 bg-transparent border border-solid border-gray-400 hover:bg-gray-500 hover:text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                type="button">
-                Search
-              </button>
+            <form method="GET" action="#">
+                <div class="bg-yellow-100 flex items-center rounded-full shadow-xl">
+                <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none bg-yellow-100" id="search" type="text" name="search" placeholder="Search your book" value="{{ request('search') }}">
+                <div class="p-2">
+                    <button
+                    class="text-gray-400 bg-transparent border border-solid border-gray-400 hover:bg-gray-500 hover:text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    type="text">
+                    Search
+                </button>
                 </div>
+            </form>
+
             </div>
         </div>
+
 
 
     </nav>

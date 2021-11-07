@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\User;
@@ -16,18 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('books', [
-        'books' => Book::latest()->get(),
-        'categories' => Category::all()
-    ]);
-})->name('home');
+Route::get('/', [BookController::class, 'index'])->name('home');
 
-Route::get('books/{book:slug}', function (Book $book) {
-    return view('book', [
-        'book' => $book
-    ]);
-});
+Route::get('books/{book:slug}', [BookController::class, 'show']);
 
 Route::get('categories/{category:slug}', function (Category $category) {
     return view('books', [

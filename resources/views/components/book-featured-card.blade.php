@@ -11,7 +11,7 @@
             <a href="/categories/{{ $book->category->slug }}">
             <p class="text-base text-gray-400 font-normal">{{ $book->category->name }}</p>
             </a>
-            <p class="text-base leading-relaxed text-gray-500 font-normal">{{ $book->excerpt }}</p>
+            <p class="text-base leading-relaxed text-gray-500 font-normal space-y-4">{!! $book->excerpt !!}</p>
             <div class="flex justify-start space-x-2">
                 <a href="/books/{{ $book->slug }}" class="text-gray-500 hover:text-gray-600 mt-20">
                     <button
