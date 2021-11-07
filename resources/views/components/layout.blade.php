@@ -21,7 +21,10 @@
         </div>
 
         <div class="pl-8 flex">
-            <form method="GET" action="#">
+            <form method="GET" action="/">
+                @if(request('category'))
+                <input type="hidden" name="category" value="{{ request('category') }}">
+                @endif
                 <div class="bg-yellow-100 flex items-center rounded-full shadow-xl">
                 <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none bg-yellow-100" id="search" type="text" name="search" placeholder="Search your book" value="{{ request('search') }}">
                 <div class="p-2">
