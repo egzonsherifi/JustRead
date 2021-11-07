@@ -21,17 +21,8 @@ Route::get('/', [BookController::class, 'index'])->name('home');
 
 Route::get('books/{book:slug}', [BookController::class, 'show']);
 
-Route::get('categories/{category:slug}', function (Category $category) {
-    return view('books', [
-        'books' => $category->books,
-        'currentCategory' => $category,
-        'categories' => Category::all()
-    ]);
-})->name('category');
-
 Route::get('authors/{author:username}', function (User $author) {
     return view('books', [
-        'books' => $author->books,
-        'categories' => Category::all()
+        'books' => $author->books
     ]);
 });

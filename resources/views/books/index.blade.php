@@ -1,5 +1,5 @@
 <x-layout>
-    @include('_book-header')
+    @include('books._header')
 
     <main>
         <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-4 py-28">

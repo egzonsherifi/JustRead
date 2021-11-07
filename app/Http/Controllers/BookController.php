@@ -3,21 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Models\Category;
 
 class BookController extends Controller
 {
     public function index()
     {
-        return view('books', [
-            'books' => Book::latest()->filter(request(['search']))->get(),
-            'categories' => Category::all()
+        return view('books.index', [
+            'books' => Book::latest()->filter(request(['search', 'category']))->get()
         ]);
     }
 
     public function show(Book $book)
     {
-        return view('book', [
+        return view('books.show', [
             'book' => $book
         ]);
     }
