@@ -8,7 +8,7 @@
             <a href="/books/{{ $book->slug }}">
             <p class="text-xl text-gray-700 font-bold">{{ $book->title }}</p>
             </a>
-            <a href="/categories/{{ $book->category->slug }}">
+            <a href="/?category={{ $book->category->slug }}">
             <p class="text-base text-gray-400 font-normal">{{ $book->category->name }}</p>
             </a>
             <p class="text-base leading-relaxed text-gray-500 font-normal space-y-4">{!! $book->excerpt !!}</p>
