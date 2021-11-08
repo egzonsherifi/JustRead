@@ -13,6 +13,7 @@
                     <x-book-card :book="$book"/>
                 @endforeach
             </div>
+            {{ $books->links() }}
 
             @else
                 <p class="text-center">No book posts yet.</p>
