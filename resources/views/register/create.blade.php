@@ -11,7 +11,7 @@
                         Name
                     </label>
 
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input class="border border-gray-400 p-2 w-full bg-yellow-100 rounded"
                            type="text"
                            name="name"
                            id="name"
@@ -26,7 +26,7 @@
                         Username
                     </label>
 
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input class="border border-gray-400 p-2 w-full bg-yellow-100 rounded"
                            type="text"
                            name="username"
                            id="username"
@@ -41,7 +41,7 @@
                         Email
                     </label>
 
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input class="border border-gray-400 p-2 w-full bg-yellow-100 rounded"
                            type="email"
                            name="email"
                            id="email"
@@ -56,7 +56,7 @@
                         Password
                     </label>
 
-                    <input class="border border-gray-400 p-2 w-full"
+                    <input class="border border-gray-400 p-2 w-full bg-yellow-100 rounded"
                            type="password"
                            name="password"
                            id="password"

@@ -16,7 +16,7 @@
         </div>
         <div class="space-x-7 flex pl-7 font-semibold uppercase">
             <a href="/">Home</a>
-            <a href="#">Register</a>
+            <a href="/register">Register</a>
             <a href="#">Login</a>
         </div>
 
