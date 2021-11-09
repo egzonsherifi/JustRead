@@ -72,4 +72,6 @@
     </div>
 </footer>
 
+<x-flash />
+
 </body>
