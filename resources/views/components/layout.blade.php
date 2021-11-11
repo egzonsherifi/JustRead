@@ -14,30 +14,46 @@
             </a>
 
         </div>
-        <div class="space-x-7 flex pl-7 font-semibold uppercase">
-            <a href="/">Home</a>
-            <a href="/register">Register</a>
-            <a href="#">Login</a>
-        </div>
 
-        <div class="pl-8 flex">
+
+        <div class="flex items-center justify-center px-10">
             <form method="GET" action="/">
                 @if(request('category'))
                 <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
-                <div class="bg-yellow-100 flex items-center rounded-full shadow-xl">
-                <input class="rounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none bg-yellow-100" id="search" type="text" name="search" placeholder="Search your book" value="{{ request('search') }}">
-                <div class="p-2">
-                    <button
-                    class="text-gray-400 bg-transparent border border-solid border-gray-400 hover:bg-gray-500 hover:text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="text">
-                    Search
+            <div class="flex border-2 border-gray-300 rounded">
+                <input type="text" name="search" class="px-4 py-2 w-80 bg-yellow-100" placeholder="Search your book" value="{{ request('search') }}">
+                <button type="submit" class="flex items-center justify-center px-4 border-l border-gray-300">
+                    <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+                    </svg>
                 </button>
-                </div>
-            </form>
-
             </div>
+        </form>
         </div>
+
+
+
+        <div class="space-x-7 flex font-semibold uppercase items-center">
+            @auth
+            <span>Welcome, {{ auth()->user()->name }}</span>
+
+            <form method="POST" action="/logout">
+                @csrf
+
+                <button type="submit" class="flex font-semibold uppercase">Log Out</button>
+
+            </form>
+            @else
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+            @endauth
+
+        </div>
+
+
 
 
 
