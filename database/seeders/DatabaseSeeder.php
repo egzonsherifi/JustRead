@@ -20,6 +20,6 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'John Doe'
         // ]);
 
-        Book::factory(10)->create();
+        // Book::factory(10)->create();
     }
 }

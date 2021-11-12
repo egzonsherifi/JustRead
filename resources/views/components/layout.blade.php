@@ -10,19 +10,17 @@
         <div class="font-bold">
             <a href="/" class="inline-flex">
                 <h1 class="items-center inline-flex" style="font-family: 'Pinyon Script', cursive; font-size:30px;">JustRead</h1>
-
             </a>
-
         </div>
 
-
+                <!-- Search -->
         <div class="flex items-center justify-center px-10">
             <form method="GET" action="/">
                 @if(request('category'))
                 <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
             <div class="flex border-2 border-gray-300 rounded">
-                <input type="text" name="search" class="px-4 py-2 w-80 bg-yellow-100" placeholder="Search your book" value="{{ request('search') }}">
+                <input type="text" name="search" class="focus:outline-none px-4 py-2 w-80 bg-yellow-100" placeholder="Search your book" value="{{ request('search') }}">
                 <button type="submit" class="flex items-center justify-center px-4 border-l border-gray-300">
                     <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -33,6 +31,8 @@
             </div>
         </form>
         </div>
+
+
 
 
 
