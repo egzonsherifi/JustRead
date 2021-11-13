@@ -39,10 +39,10 @@
                         <div class="space-y-4 lg:text-lg leading-loose">{!! $book->body !!}</div>
                     </div>
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                    <x-book-comment />
-                    <x-book-comment />
-                    <x-book-comment />
-                    <x-book-comment />
+                    @foreach ($book->comments as $comment)
+                        <x-book-comment :comment="$comment" />
+                    @endforeach
+
                 </section>
             </article>
 
