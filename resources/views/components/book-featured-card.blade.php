@@ -1,6 +1,6 @@
 @props(['book'])
 <article>
-    <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row border-2 border-gray-300">
+    <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row border-2 border-gray-400">
         <div class="w-full md:w-2/5 h-70">
             <img class="object-center object-cover w-full h-full" src="/images/3b47d124002685f2a3c67e47383232c7.jpg" alt="photo">
         </div>

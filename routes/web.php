@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookCommentsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
@@ -7,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [BookController::class, 'index'])->name('home');
 Route::get('books/{book:slug}', [BookController::class, 'show']);
+
+Route::post('books/{book:slug}/comments', [BookCommentsController::class, 'store']);
 
 Route::get('register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->middleware('guest');

@@ -39,26 +39,7 @@
                         <div class="space-y-4 lg:text-lg leading-loose">{!! $book->body !!}</div>
                     </div>
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                    <form method="POST" action="" class="border border-2 border-gray-300 p-6 rounded-xl">
-                        @csrf
-
-                        <header class="flex items-center">
-                            <img src="https://i.pravatar.cc/?u={{ auth()->id() }}" alt="" width="40" height="40" class="rounded-xl">
-                            <h2 class="ml-4">Want to participate?</h2>
-                        </header>
-
-                        <div class="mt-6">
-                            <textarea name="body" class="w-full bg-yellow-100 rounded text-sm focus:outline-none focus:ring" cols="30" rows="10" placeholder="Say something!"></textarea>
-                        </div>
-                        <div class="flex justify-end mt-6 pt-6 border-t border-gray-300">
-                            <button
-                            class="text-gray-400 bg-transparent border border-solid border-gray-400 hover:bg-gray-500 hover:text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                            type="button">
-                            Submit
-                          </button>
-                        </div>
-                    </form>
-
+                    @include('books.add-comment-form')
 
                     @foreach ($book->comments as $comment)
                         <x-book-comment :comment="$comment" />
