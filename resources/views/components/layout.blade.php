@@ -70,13 +70,20 @@
         <div class="relative inline-block mx-auto lg:bg-gray-200 rounded-full">
 
             <form method="POST" action="/newsletter" class="lg:flex text-sm">
+                @csrf
                 <div class="bg-yellow-100 flex items-center rounded-full shadow-xl">
-                  <input class="rounded-l-full w-full py-4 px-10 text-gray-700 leading-tight focus:outline-none bg-yellow-100" id="search" type="text" placeholder="Your email address">
+                  <div>
+                      <input class="rounded-l-full w-full py-4 px-10 text-gray-700 leading-tight focus:outline-none bg-yellow-100" id="search" name="email" type="text" placeholder="Your email address">
+
+                  @error('email')
+                    <span class="text-xs text-red-500">{{ $message }}</span>
+                  @enderror
+                  </div>
 
                   <div class="p-2">
                     <button
                     class="text-gray-400 bg-transparent border border-solid border-gray-400 hover:bg-gray-500 hover:text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button">
+                    type="submit">
                     Subscribe
                   </button>
 
