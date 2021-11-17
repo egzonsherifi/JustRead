@@ -30,8 +30,10 @@ class BookController extends Controller
 
     public function store()
     {
+
         $attributes = request()->validate([
             'title' => 'required',
+            'thumbnail' => 'required|image',
             'slug' => ['required', Rule::unique('books', 'slug')],
             'excerpt' => 'required',
             'body' => 'required',
@@ -39,6 +41,7 @@ class BookController extends Controller
         ]);
 
         $attributes['user_id'] = auth()->id();
+        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
 
         Book::create($attributes);
 

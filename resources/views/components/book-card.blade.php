@@ -2,7 +2,7 @@
 <article>
     <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row border-2 border-gray-400">
         <div class="w-full md:w-2/5 h-70">
-            <img class="object-center object-cover w-full h-full" src="/images/3b47d124002685f2a3c67e47383232c7.jpg" alt="photo">
+            <img class="object-center object-cover w-full h-full" src="{{ asset('storage/' . $book->thumbnail) }}" alt="photo">
         </div>
         <div class="w-full md:w-3/5 text-left p-6 md:p-4 space-y-2 bg-yellow-100">
             <a href="/books/{{ $book->slug }}">

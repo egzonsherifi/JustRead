@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $user = User::factory()->create([
-        //     'name' => 'John Doe'
-        // ]);
+        $user = User::factory()->create([
+            'name' => 'John Doe'
+        ]);
 
-        // Book::factory(10)->create();
+        Book::factory(10)->create();
     }
 }
