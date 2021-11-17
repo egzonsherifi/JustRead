@@ -21,3 +21,4 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 Route::get('admin/books/create', [BookController::class, 'create'])->middleware('admin');
+Route::post('admin/books', [BookController::class, 'store'])->middleware('admin');
