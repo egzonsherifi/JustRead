@@ -21,4 +21,9 @@ class BookController extends Controller
             'book' => $book
         ]);
     }
+
+    public function create()
+    {
+        return view('books.create');
+    }
 }
