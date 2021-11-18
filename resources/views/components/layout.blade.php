@@ -38,14 +38,20 @@
 
         <div class="space-x-7 flex font-semibold uppercase items-center">
             @auth
-            <span>Welcome, {{ auth()->user()->name }}</span>
+            <x-dropdown>
+                <x-slot name="trigger">
+                    <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}</button>
+                </x-slot>
 
-            <form method="POST" action="/logout">
-                @csrf
+                <x-dropdown-item href="/admin/dashboard">Dashboard</x-dropdown-item>
+                <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')">New Post</x-dropdown-item>
+                <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
+                <form id="logout-form" method="POST" action="/logout" class="hidden">
+                    @csrf
+                </form>
+            </x-dropdown>
 
-                <button type="submit" class="flex font-semibold uppercase">Log Out</button>
 
-            </form>
             @else
                 <a href="/register">Register</a>
                 <a href="/login">Login</a>
