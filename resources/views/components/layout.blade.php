@@ -19,9 +19,9 @@
                 @if(request('category'))
                 <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
-            <div class="flex border-2 border-gray-400 rounded">
-                <input type="text" name="search" class="focus:outline-none px-4 py-2 w-80 bg-yellow-100" placeholder="Search your book" value="{{ request('search') }}">
-                <button type="submit" class="flex items-center justify-center px-4 border-l border-gray-400">
+            <div class="flex border border-gray-400 rounded-r">
+                <input type="text" name="search" class="focus:outline-none px-4 py-2 w-64 bg-yellow-100" placeholder="Search your book" value="{{ request('search') }}">
+                <button type="submit" class="flex items-center justify-center px-4">
                     <svg class="w-6 h-6 text-gray-600" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path

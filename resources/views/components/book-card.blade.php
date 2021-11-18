@@ -1,6 +1,6 @@
 @props(['book'])
 <article>
-    <div class="w-full bg-white rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row border-2 border-gray-400">
+    <div class="w-full rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row border border-gray-400">
         <div class="w-full md:w-2/5 h-70">
             <img class="object-center object-cover w-full h-full" src="{{ asset('storage/' . $book->thumbnail) }}" alt="photo">
         </div>
