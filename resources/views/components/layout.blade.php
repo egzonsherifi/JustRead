@@ -43,8 +43,11 @@
                     <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}</button>
                 </x-slot>
 
-                <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')" style="text-transform: capitalize">Dashboard</x-dropdown-item>
-                <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')" style="text-transform: capitalize">New Post</x-dropdown-item>
+                @admin
+                    <x-dropdown-item href="/admin/books" :active="request()->is('admin/books')" style="text-transform: capitalize">Dashboard</x-dropdown-item>
+                    <x-dropdown-item href="/admin/books/create" :active="request()->is('admin/books/create')" style="text-transform: capitalize">New Post</x-dropdown-item>
+                @endadmin
+
                 <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()" style="text-transform: capitalize">Log Out</x-dropdown-item>
                 <form id="logout-form" method="POST" action="/logout" class="hidden">
                     @csrf

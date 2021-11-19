@@ -22,10 +22,14 @@ Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
 
-// Admin
-Route::post('admin/books', [AdminBookController::class, 'store'])->middleware('admin');
-Route::get('admin/books/create', [AdminBookController::class, 'create'])->middleware('admin');
-Route::get('admin/books', [AdminBookController::class, 'index'])->middleware('admin');
-Route::get('admin/books/{book}/edit', [AdminBookController::class, 'edit'])->middleware('admin');
-Route::patch('admin/books/{book}', [AdminBookController::class, 'update'])->middleware('admin');
-Route::delete('admin/books/{book}', [AdminBookController::class, 'destroy'])->middleware('admin');
+// Admin Section
+Route::middleware('can:admin')->group(function () {
+    Route::resource('admin/books', AdminBookController::class)->except('show');
+
+    // Route::get('admin/books', [AdminBookController::class, 'index']);
+    // Route::post('admin/books', [AdminBookController::class, 'store']);
+    // Route::get('admin/books/create', [AdminBookController::class, 'create']);
+    // Route::get('admin/books/{book}/edit', [AdminBookController::class, 'edit']);
+    // Route::patch('admin/books/{book}', [AdminBookController::class, 'update']);
+    // Route::delete('admin/books/{book}', [AdminBookController::class, 'destroy']);
+});
