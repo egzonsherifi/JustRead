@@ -21,20 +21,10 @@ class AdminBookController extends Controller
 
     public function store()
     {
-
-        $attributes = request()->validate([
-            'title' => 'required',
-            'thumbnail' => 'required|image',
-            'slug' => ['required', Rule::unique('books', 'slug')],
-            'excerpt' => 'required',
-            'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
-        ]);
-
-        $attributes['user_id'] = auth()->id();
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-
-        Book::create($attributes);
+        Book::create(array_merge($this->validateBook(), [
+            'user_id' => request()->user()->id,
+            'thumbnail' => request()->file('thumbnail')->store('thumbnails')
+        ]));
 
         return redirect('/');
     }
@@ -46,16 +36,9 @@ class AdminBookController extends Controller
 
     public function update(Book $book)
     {
-        $attributes = request()->validate([
-            'title' => 'required',
-            'thumbnail' => 'image',
-            'slug' => ['required', Rule::unique('books', 'slug')->ignore($book->id)],
-            'excerpt' => 'required',
-            'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
-        ]);
+        $attributes = $this->validateBook($book);
 
-        if (isset($attributes['thumbnail'])) {
+        if ($attributes['thumbnail'] ?? false) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
         }
 
@@ -69,5 +52,18 @@ class AdminBookController extends Controller
         $book->delete();
 
         return back()->with('success', 'Book Deleted!');
+    }
+
+    protected function validateBook(?Book $book = null): array
+    {
+        $book ??= new Book();
+        return request()->validate([
+            'title' => 'required',
+            'thumbnail' => $book->exists ? ['image'] : ['required', 'image'],
+            'slug' => ['required', Rule::unique('books', 'slug')->ignore($book)],
+            'excerpt' => 'required',
+            'body' => 'required',
+            'category_id' => ['required', Rule::exists('categories', 'id')]
+        ]);
     }
 }
