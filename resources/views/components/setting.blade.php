@@ -5,11 +5,11 @@
     </h1>
 
     <div class="flex">
-    <aside class="w-48">
+    <aside class="w-48 flex-shrink-0">
         <h1 class="font-semibold mb-4">Links</h1>
         <ul>
             <li>
-                <a href="/admin/dashboard" class="{{ request()->is('admin/dashboard') ? 'text-yellow-500' : '' }}">Dashboard</a>
+                <a href="/admin/books" class="{{ request()->is('admin/books') ? 'text-yellow-500' : '' }}">All Books</a>
             </li>
 
             <li>

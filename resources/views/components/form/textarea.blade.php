@@ -8,6 +8,6 @@
             cols="30"
             rows="5"
             required
-    >{{ old($name) }}</textarea>
+    >{{ $slot ?? old($name) }}</textarea>
     <x-form.error name="{{ $name }}"/>
 </x-form.field>

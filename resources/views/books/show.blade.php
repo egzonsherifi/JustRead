@@ -25,9 +25,9 @@
                             </a>
 
                             <div class="space-x-2">
-                                    <a href="/?author={{ $book->author->username }}" class="text-gray-400 bg-transparent border border-solid border-gray-400 hover:bg-gray-500 hover:text-white active:bg-purple-600 font-bold uppercase text-xs px-2 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                                    <a href="/?category={{ $book->category->slug }}" class="text-gray-400 bg-transparent border border-solid border-gray-400 hover:bg-gray-500 hover:text-white active:bg-purple-600 font-bold uppercase text-xs px-2 py-1 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                                     type="button">
-                                    {{ $book->author->name }}
+                                    {{ $book->category->name }}
                             </a>
                             </div>
                         </div>

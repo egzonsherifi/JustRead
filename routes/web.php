@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminBookController;
 use App\Http\Controllers\BookCommentsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\NewsletterController;
@@ -20,5 +21,11 @@ Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
-Route::get('admin/books/create', [BookController::class, 'create'])->middleware('admin');
-Route::post('admin/books', [BookController::class, 'store'])->middleware('admin');
+
+// Admin
+Route::post('admin/books', [AdminBookController::class, 'store'])->middleware('admin');
+Route::get('admin/books/create', [AdminBookController::class, 'create'])->middleware('admin');
+Route::get('admin/books', [AdminBookController::class, 'index'])->middleware('admin');
+Route::get('admin/books/{book}/edit', [AdminBookController::class, 'edit'])->middleware('admin');
+Route::patch('admin/books/{book}', [AdminBookController::class, 'update'])->middleware('admin');
+Route::delete('admin/books/{book}', [AdminBookController::class, 'destroy'])->middleware('admin');
