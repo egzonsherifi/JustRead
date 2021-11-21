@@ -1,26 +1,37 @@
 @props(['book'])
 <article>
-    <div class="w-full rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row border border-gray-400">
-        <div class="w-full md:w-2/5 h-70">
-            <img class="object-center object-cover w-full h-full" src="{{ asset('storage/' . $book->thumbnail) }}" alt="photo">
+    <div class="py-6 px-5 lg:flex border border-gray-400 rounded-xl">
+        <div class="flex lg:mr-8">
+            <img class="object-center object-cover w-80 h-90 rounded-xl" src="{{ asset('storage/' . $book->thumbnail) }}" alt="photo">
         </div>
-        <div class="w-full md:w-3/5 text-left p-6 md:p-4 space-y-2 bg-yellow-100">
-            <a href="/books/{{ $book->slug }}">
-            <p class="text-xl text-gray-700 font-bold">{{ $book->title }}</p>
-            </a>
-            <a href="/?category={{ $book->category->slug }}">
-            <p class="text-base text-gray-400 font-normal">{{ $book->category->name }}</p>
-            </a>
-            <p class="text-base leading-relaxed text-gray-500 font-normal space-y-4">{!! $book->excerpt !!}</p>
-            <div class="flex justify-start space-x-2">
-                <a href="/books/{{ $book->slug }}" class="text-gray-500 hover:text-gray-600 mt-20">
-                    <button
-                    class="text-gray-400 bg-transparent border border-solid border-gray-400 hover:bg-gray-500 hover:text-white active:bg-purple-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150 mt-96"
-                    type="button">
-                    Search
-                </button>
-                </a>
+        <div class="flex-1 flex flex-col justify-between">
+            <header class="mt-8 lg:mt-0">
+                <div class="mt-4">
+                    <a href="/books/{{ $book->slug }}">
+                        <h1 class="text-3xl">
+                            {{ $book->title }}
+                        </h1>
+                    </a>
+                    <a href="/?category={{ $book->category->slug }}">
+                    <span class="mt-10 block text-gray-400 text-sm">
+                            {{ ucwords($book->category->name) }}
+                    </span>
+                    </a>
+                </div>
+            </header>
+
+            <div class="text-sm">
+                <p>
+                    {!! $book->excerpt !!}
+                </p>
             </div>
+
+            <footer class="flex justify-between items-center mt-8">
+                <a href="/books/{{ $book->slug }}" class="text-gray-500 hover:text-gray-600">
+                <x-form.button>Read More</x-form.button>
+                </a>
+            </footer>
         </div>
     </div>
 </article>
+
